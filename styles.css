@@ -1,60 +1,147 @@
 @font-face {
-    font-family: "Norse bold";
-    src: url("font/Norsebold.otf") format("opentype");
-    font-weight: normal;
+    font-family: "Norse";
+    src: url("./font/Norsebold.otf") format("opentype");
+    font-weight: 700;
     font-style: normal;
+    font-display: swap;
 }
-
+:root {
+    --container-width: 1000px;
+    --accent: #596d48;
+}
 * {
-    --width: 1000px;
-
-    font-family: sans-serif;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
+body {
+    font-family: system-ui, sans-serif;
+    background-color: #f0f2f5;
+    padding: 10px 0;
+}
 .container {
+    max-width: var(--container-width);
+    margin: auto;
     display: flex;
     flex-direction: column;
-    width: var(--width);
-    margin: 0 auto;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    overflow: hidden;
 }
 
+/* Img section */
 .img-container {
+    position: relative;
+}
+.hero {
+    position: relative;
+    overflow: visible;
+}
+.hero img {
+    width: 100%;   
+    display: block; 
+}
+.logo-container {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px 0; 
+
+    color: white;
+    font-family: "Norse", sans-serif;
+    font-size: 4.2rem;
+    font-weight: 700;
+}
+.logo-inner {
+    height: 4.2rem;
+    width: auto;
+    display: block;
+}
+.logo {
+    height: 4.2rem;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+.logo-text {
+    letter-spacing: -0.05em;
 }
 .img-author {
     position: absolute;
-    top: 630px;
-    left: 1200px;
-    color: white;
+    bottom: 10px;
+    left: 12px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.85);
 }
-a {
+.img-author a {
     color: white;
-    text-decoration: none;
     font-weight: bold;
+    text-decoration: none;
 }
-img {
-    width: 100%;
+.img-author a:hover {
+    text-decoration: underline;
 }
 
-.logo-container {
-    width: var(--width);
-    position: absolute;
-    top: 300px;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 10px 20px;
-    font-family: "Norse bold", sans-serif;
-    font-size: 110px;
+/* Form section */
+.form-container {
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-.logo {
-    width: 150px;
-    vertical-align: middle;
-    margin-right: 10px;
+.intro p{
+    margin-bottom: 16px;
+    font-size: 1rem;
+    color: #333;
+}
+form {
+    margin-top: 24px;
+}
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 24px;
+}
+label {
+    display: block;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #444;
+    margin-bottom: 4px;
+}
+input {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 0.9rem;
+}
+input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(89, 109, 72, 0.2);
+}
+button {
+    margin-top: 24px;
+    padding: 12px 24px;
+    background: var(--accent);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+button:hover {
+    background: #475a3a;
 }
